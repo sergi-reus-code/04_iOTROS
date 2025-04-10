@@ -1,0 +1,103 @@
+---
+---
+
+<section id="features" class="features">
+    <h2>¿Por qué usar nuestro tablero Kanban?</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="icon">📋</div>
+            <h3>Gestión Visual</h3>
+            <p>Visualiza el flujo de trabajo con columnas claras y tarjetas intuitivas.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🔄</div>
+            <h3>Flujo Continuo</h3>
+            <p>Mueve las tareas entre estados para mantener un progreso constante.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📊</div>
+            <h3>Organización Sencilla</h3>
+            <p>Clasifica tus tareas de forma simple y efectiva.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .features {
+        padding: 60px 0;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .features h2 {
+        margin-bottom: 50px;
+        font-size: 36px;
+        padding: 0 20px;
+        word-wrap: break-word;
+    }
+    
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 0 20px;
+    }
+    
+    .feature-card {
+        background-color: #f8f9fa;
+        padding: 30px;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .icon {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+    
+    .feature-card h3 {
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
+    
+    @media (max-width: 768px) {
+        .feature-grid {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .features h2 {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .feature-card {
+            padding: 20px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .feature-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .features h2 {
+            font-size: 26px;
+        }
+        
+        .icon {
+            font-size: 32px;
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+        }
+    }
+</style>

@@ -1,177 +1,48 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Landing/Hero.astro';
+import Features from '../components/Landing/Features.astro';
+import Cta from '../components/Landing/Cta.astro';
+import Footer from '../components/Landing/Footer.astro';
 ---
 
 <Layout>
-	<main>
-		<div class="hero">
-			<h1>Bienvenido a tu Tablero Kanban</h1>
-			<p class="description">Organiza tus tareas y aumenta tu productividad con nuestro intuitivo tablero Kanban</p>
-			<div class="buttons">
-				<a href="/kanban" class="btn-primary">Ir al Tablero</a>
-				<a href="#features" class="btn-secondary">Conocer más</a>
-			</div>
-		</div>
-		
-		<section id="features" class="features">
-			<h2>¿Por qué usar nuestro tablero Kanban?</h2>
-			<div class="feature-grid">
-				<div class="feature-card">
-					<div class="icon">📋</div>
-					<h3>Gestión Visual</h3>
-					<p>Visualiza el flujo de trabajo con columnas claras y tarjetas intuitivas.</p>
-				</div>
-				<div class="feature-card">
-					<div class="icon">🔄</div>
-					<h3>Flujo Continuo</h3>
-					<p>Mueve las tareas entre estados para mantener un progreso constante.</p>
-				</div>
-				<div class="feature-card">
-					<div class="icon">📊</div>
-					<h3>Organización Sencilla</h3>
-					<p>Clasifica tus tareas de forma simple y efectiva.</p>
-				</div>
-			</div>
-		</section>
-		
-		<section class="cta">
-			<h2>¿Listo para empezar?</h2>
-			<a href="/kanban" class="btn-primary">Acceder al Tablero</a>
-		</section>
-	</main>
-
-	<footer>
-		<p>&copy; 2025 Tablero Kanban. Todos los derechos reservados.</p>
-	</footer>
+	<div class="container">
+		<main>
+			<Hero />
+			<Features />
+			<Cta />
+		</main>
+		<Footer />
+	</div>
 </Layout>
 
 <style>
+	.container {
+		width: 100%;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+	
 	main {
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 20px;
-	}
-	
-	.hero {
-		text-align: center;
-		padding: 80px 20px;
-		background: linear-gradient(135deg, #6366F1, #8B5CF6);
-		border-radius: 15px;
-		color: white;
-		margin-bottom: 60px;
-	}
-	
-	h1 {
-		font-size: 48px;
-		margin-bottom: 20px;
-	}
-	
-	.description {
-		font-size: 20px;
-		max-width: 600px;
-		margin: 0 auto 40px;
-		line-height: 1.5;
-	}
-	
-	.buttons {
-		display: flex;
-		justify-content: center;
-		gap: 20px;
-		flex-wrap: wrap;
-	}
-	
-	.btn-primary {
-		background-color: white;
-		color: #6366F1;
-		padding: 12px 24px;
-		border-radius: 8px;
-		font-weight: bold;
-		text-decoration: none;
-		transition: all 0.3s ease;
-	}
-	
-	.btn-primary:hover {
-		transform: translateY(-3px);
-		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-	}
-	
-	.btn-secondary {
-		border: 2px solid white;
-		color: white;
-		padding: 12px 24px;
-		border-radius: 8px;
-		font-weight: bold;
-		text-decoration: none;
-		transition: all 0.3s ease;
-	}
-	
-	.btn-secondary:hover {
-		background-color: rgba(255, 255, 255, 0.1);
-	}
-	
-	.features {
-		padding: 60px 0;
-		text-align: center;
-	}
-	
-	.features h2 {
-		margin-bottom: 50px;
-		font-size: 36px;
-	}
-	
-	.feature-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 30px;
-	}
-	
-	.feature-card {
-		background-color: #f8f9fa;
-		padding: 30px;
-		border-radius: 10px;
-		transition: transform 0.3s ease;
-	}
-	
-	.feature-card:hover {
-		transform: translateY(-10px);
-	}
-	
-	.icon {
-		font-size: 40px;
-		margin-bottom: 20px;
-	}
-	
-	.feature-card h3 {
-		margin-bottom: 15px;
-		font-size: 22px;
-	}
-	
-	.cta {
-		background-color: #f8f9fa;
-		text-align: center;
-		padding: 80px 20px;
-		border-radius: 15px;
-		margin: 60px 0;
-	}
-	
-	.cta h2 {
-		margin-bottom: 30px;
-		font-size: 36px;
-	}
-	
-	footer {
-		text-align: center;
-		padding: 40px 0;
-		color: #6b7280;
+		width: 100%;
+		box-sizing: border-box;
+		flex: 1;
 	}
 	
 	@media (max-width: 768px) {
-		h1 {
-			font-size: 36px;
+		main {
+			padding: 15px;
 		}
-		
-		.feature-grid {
-			grid-template-columns: 1fr;
+	}
+	
+	@media (max-width: 480px) {
+		main {
+			padding: 10px;
 		}
 	}
 </style>

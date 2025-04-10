@@ -1,0 +1,71 @@
+---
+---
+
+<section class="cta">
+    <h2>¿Listo para empezar?</h2>
+    <a href="/kanban" class="btn-primary">Acceder al Tablero</a>
+</section>
+
+<style>
+    .cta {
+        background-color: #f8f9fa;
+        text-align: center;
+        padding: 80px 20px;
+        border-radius: 15px;
+        margin: 60px 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .cta h2 {
+        margin-bottom: 30px;
+        font-size: 36px;
+        word-wrap: break-word;
+    }
+    
+    .btn-primary {
+        background-color: #6366F1;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        background-color: #4F46E5;
+    }
+    
+    @media (max-width: 768px) {
+        .cta {
+            padding: 60px 20px;
+            margin: 40px 0;
+        }
+        
+        .cta h2 {
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .cta {
+            padding: 40px 15px;
+        }
+        
+        .cta h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-primary {
+            width: 100%;
+            max-width: 250px;
+            box-sizing: border-box;
+        }
+    }
+</style>

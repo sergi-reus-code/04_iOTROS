@@ -1,0 +1,105 @@
+---
+---
+
+<div class="hero">
+    <h1>Bienvenido a tu Tablero Kanban</h1>
+    <p class="description">Organiza tus tareas y aumenta tu productividad con nuestro intuitivo tablero Kanban</p>
+    <div class="buttons">
+        <a href="/kanban" class="btn-primary">Ir al Tablero</a>
+        <a href="#features" class="btn-secondary">Conocer más</a>
+    </div>
+</div>
+
+<style>
+    .hero {
+        text-align: center;
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #6366F1, #8B5CF6);
+        border-radius: 15px;
+        color: white;
+        margin-bottom: 60px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+    }
+    
+    .description {
+        font-size: 20px;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.5;
+    }
+    
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .btn-primary {
+        background-color: white;
+        color: #6366F1;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-secondary {
+        border: 2px solid white;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 36px;
+        }
+        .hero {
+            padding: 60px 15px;
+            margin-bottom: 40px;
+        }
+        .description {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 28px;
+        }
+        .hero {
+            padding: 40px 15px;
+        }
+        .buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+        .btn-primary, .btn-secondary {
+            width: 100%;
+            max-width: 250px;
+            text-align: center;
+        }
+    }
+</style>

@@ -4,14 +4,22 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-    <header class="board-header">
-        <h1>Mi Tablero Kanban</h1>
-        <a href="/" class="back-to-home">← Volver a Inicio</a>
-    </header>
-    <KanbanBoard />
+    <div class="kanban-container">
+        <header class="board-header">
+            <h1>Mi Tablero Kanban</h1>
+            <a href="/" class="back-to-home">← Volver a Inicio</a>
+        </header>
+        <KanbanBoard />
+    </div>
 </Layout>
 
 <style>
+    .kanban-container {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 10px;
+    }
+    
     .board-header {
         display: flex;
         justify-content: space-between;
@@ -19,6 +27,8 @@ import Layout from '../layouts/Layout.astro';
         padding: 1rem 2rem;
         background-color: #f8f9fa;
         margin-bottom: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
     
     h1 {
@@ -32,9 +42,33 @@ import Layout from '../layouts/Layout.astro';
         text-decoration: none;
         font-weight: 500;
         transition: color 0.2s ease;
+        white-space: nowrap;
     }
     
     .back-to-home:hover {
         color: #4f46e5;
+    }
+    
+    @media (max-width: 768px) {
+        .board-header {
+            padding: 0.8rem 1.5rem;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .board-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 0.8rem 1rem;
+        }
+        
+        h1 {
+            font-size: 1.3rem;
+        }
     }
 </style>
