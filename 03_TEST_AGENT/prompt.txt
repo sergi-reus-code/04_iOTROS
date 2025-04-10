@@ -1,0 +1,33 @@
+# Objetivo
+Desarrollar un backend completo para una aplicación de notas que permita a los usuarios crear, leer, actualizar y eliminar notas (CRUD). La aplicación debe incluir autenticación de usuarios y almacenamiento persistente de datos.
+
+# Requisitos técnicos
+- Node.js (versión LTS)
+- Express.js como framework principal
+- MongoDB para la base de datos (con Mongoose como ODM)
+- JWT para autenticación
+- Estructura de proyecto organizada y modular
+- Validación de datos de entrada
+- Manejo de errores centralizado
+
+
+# Funcionalidades principales
+- Autenticación de usuarios
+- Registro de nuevos usuarios
+- Inicio de sesión con generación de token JWT
+- Cerrar sesión
+- Recuperación de contraseña
+
+# Gestión de notas
+- Crear nuevas notas con título, contenido y etiquetas
+- Obtener todas las notas del usuario autenticado
+- Obtener una nota específica por ID
+- Actualizar notas existentes
+- Eliminar notas
+- Buscar notas por título o contenido
+- Filtrar notas por etiquetas
+
+# Características adicionales
+Marcar notas como favoritas
+Organizar notas en carpetas o categorías
+Compartir notas entre usuarios

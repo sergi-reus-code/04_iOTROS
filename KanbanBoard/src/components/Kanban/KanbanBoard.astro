@@ -1,0 +1,128 @@
+---
+import KanbanCard from './KanbanCard.astro';
+
+// Tasks data organized by column
+const tasks = {
+  upcoming: [
+    { id: 'task1', content: 'Plan marketing campaign' },
+    { id: 'task2', content: 'Approve legal agreement' },
+    { id: 'task3', content: 'Schedule recurring client meeting' },
+  ],
+  inProgress: [
+    { id: 'task4', content: 'Collect design assets' },
+    { id: 'task5', content: 'Create 10 T-shirt options for launch day' },
+    { id: 'task6', content: 'Update online shop' },
+  ],
+  done: [
+    { id: 'task7', content: 'Review legal agreement' },
+    { id: 'task8', content: 'Customer survey' },
+  ],
+};
+---
+
+<style>
+  .kanban-board {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f4f5f7;
+    min-height: 70vh;
+  }
+
+  .kanban-column {
+    flex: 1;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    min-width: 250px;
+  }
+
+  .kanban-column h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f1f1f1;
+  }
+  
+  .column-content {
+    min-height: 200px;
+  }
+
+  .kanban-column.sortable-ghost {
+    background-color: #f0f9ff;
+  }
+  
+  .sortable-ghost {
+    opacity: 0.4;
+  }
+
+  .sortable-chosen {
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+</style>
+
+<div class="kanban-board">
+  <div class="kanban-column" data-column="upcoming">
+    <h2>Upcoming</h2>
+    <div class="column-content" id="upcoming">
+      {tasks.upcoming.map((task) => (
+        <KanbanCard id={task.id} content={task.content} />
+      ))}
+    </div>
+  </div>
+
+  <div class="kanban-column" data-column="inProgress">
+    <h2>In Progress</h2>
+    <div class="column-content" id="inProgress">
+      {tasks.inProgress.map((task) => (
+        <KanbanCard id={task.id} content={task.content} />
+      ))}
+    </div>
+  </div>
+
+  <div class="kanban-column" data-column="done">
+    <h2>Done</h2>
+    <div class="column-content" id="done">
+      {tasks.done.map((task) => (
+        <KanbanCard id={task.id} content={task.content} />
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>  
+  import Sortable from 'sortablejs';
+  document.addEventListener('DOMContentLoaded', () => {
+    // Initialize SortableJS for each column
+    const columns = document.querySelectorAll<HTMLElement>('.column-content');
+    
+    // Store sortable instances for potential future reference
+    const sortables = [];
+    
+    columns.forEach(column => {
+      const sortable = new Sortable(column, {
+        group: 'kanban-board', // Shared group allows dragging between lists
+        animation: 150, // Animation speed in ms
+        ghostClass: 'sortable-ghost', // Class for the drop placeholder
+        chosenClass: 'sortable-chosen', // Class for the chosen item
+        dragClass: 'sortable-drag', // Class for the dragging item
+        
+        // Optional: Update data when a card is moved
+        onEnd: function(evt: Sortable.SortableEvent) {
+          const itemEl = evt.item;  // dragged HTMLElement
+          const fromColumn = evt.from.id;  // previous list
+          const toColumn = evt.to.id;    // target list
+          const itemId = itemEl.dataset.id;
+          
+          console.log(`Card ${itemId} moved from ${fromColumn} to ${toColumn}`);
+          // Here you would typically update your backend or storage
+        }
+      });
+      
+      sortables.push(sortable);
+  
+    });
+  });
+</script>

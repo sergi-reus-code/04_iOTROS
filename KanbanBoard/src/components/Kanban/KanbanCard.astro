@@ -1,0 +1,95 @@
+---
+export interface KanbanCardProps {
+  id: string;
+  content: string;
+  subtasks?: string[];
+  assignee?: string;
+  progress?: string;
+}
+
+const { id, content, subtasks = [], assignee = 'DT', progress = '0/2' } = Astro.props as KanbanCardProps;
+---
+
+<div class="kanban-card" draggable="true" data-id={id}>
+  <div class="card-header">
+    <div class="card-title">{content}</div>
+    <div class="card-assignee">{assignee}</div>
+  </div>
+  <div class="card-meta">
+    <span>ID {id}</span>
+    <span>{progress}</span>
+  </div>
+  <div class="card-subtasks">
+    {subtasks.map((subtask) => (
+      <div class="subtask">{subtask}</div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .kanban-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .kanban-card:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .kanban-card:active {
+    cursor: grabbing;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #1d3557;
+  }
+
+  .card-assignee {
+    background: #f4b400;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #6c757d;
+  }
+
+  .card-subtasks {
+    margin-top: 0.5rem;
+    border-top: 1px solid #ddd;
+    padding-top: 0.5rem;
+  }
+
+  .subtask {
+    font-size: 0.85rem;
+    color: #495057;
+    padding: 0.2rem 0;
+  }
+</style>
