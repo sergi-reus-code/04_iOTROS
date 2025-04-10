@@ -1,5 +1,40 @@
 ---
 import KanbanBoard from '../components/Kanban/KanbanBoard.astro';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<KanbanBoard />
+<Layout>
+    <header class="board-header">
+        <h1>Mi Tablero Kanban</h1>
+        <a href="/" class="back-to-home">← Volver a Inicio</a>
+    </header>
+    <KanbanBoard />
+</Layout>
+
+<style>
+    .board-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #f8f9fa;
+        margin-bottom: 1rem;
+    }
+    
+    h1 {
+        margin: 0;
+        font-size: 1.8rem;
+        color: #4f46e5;
+    }
+    
+    .back-to-home {
+        color: #6b7280;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.2s ease;
+    }
+    
+    .back-to-home:hover {
+        color: #4f46e5;
+    }
+</style>
